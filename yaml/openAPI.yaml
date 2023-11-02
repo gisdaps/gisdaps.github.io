@@ -1,0 +1,190 @@
+openapi: 3.0.3
+info:
+  title: Dokumen API Cloud Function - OpenAPI 3.0
+  description: >-
+    Jelaskan disini apa saja yang perlu dijelaskan
+    termasuk informasi yang diperlukan untuk dinilai
+    term of service isi dari link repo dari swagger ini
+  termsOfService: https://github.com/wegotour/wegotour.github.io/tree/main/swagger
+  contact:
+    email: daffaaudyapramana03@gmail.com
+  license:
+    name: Wegotour Package
+    url: https://pkg.go.dev/github.com/wegotour/be_p3
+  version: 0.0.1
+externalDocs:
+  description: Repo GCF
+  url: https://wegotour.github.io/cloudfunction_wegotour/
+servers:
+  - url: https://asia-southeast2-wegotour-403712.cloudfunctions.net/
+tags:
+  - name: user
+    description: Data User
+    externalDocs:
+      description: Deskripsi dan Kode Program
+      url: https://wegotour.github.io/cloudfunction_wegotour/GET/
+  - name: auth
+    description: Auth to Access to API
+    externalDocs:
+      description: Deskripsi dan Kode Program
+      url: https://wegotour.github.io/cloudfunction_wegotour/POST/
+  - name: ticket
+    description: Data Ticket
+paths:
+  /wegotour/User:
+    get:
+      tags:
+        - user
+      summary: Get All User
+      description: List Data User
+      operationId: getAllUser
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid status value
+  
+  /wegotour/ticket/{id}:
+    get:
+      tags:
+        - ticket
+      summary: Get Ticket by ID
+      description: " "
+      operationId: getTicketById
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ticket'
+        '400':
+          description: Invalid status value
+
+  /wegotour-post:
+    post:
+      tags:
+        - auth
+      summary: Login get Token
+      description: Login and Get User Token
+      operationId: authService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Auth'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '405':
+          description: Invalid input
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
+
+  /wegotour-post/ticket:
+    post:
+      tags:
+        - ticket
+      summary: Post Ticket
+      description: Insert Ticket
+      operationId: InsertTicket
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ticket'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '405':
+          description: Invalid input
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+    Ticket:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        isdone:
+          type: bool
+          example: true
+    Auth:
+      type: object
+      properties:
+        username:
+          type: string
+          example: budiman
+        password:
+          type: string
+          example: secret
+    AuthResponse:
+      type: object
+      properties:
+        status:
+          type: bool
+          example: false
+        message:
+          type: string
+          example: fehguy
+        token:
+          type: string
+          example: fehguy
+  requestBodies:
+    AuthReq:
+      description: Request Authentication
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Auth'
+    UserArray:
+      description: List of user object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AuthResponse'
+  securitySchemes:
+    token:
+      type: apiKey
+      name: token
+      in: header
