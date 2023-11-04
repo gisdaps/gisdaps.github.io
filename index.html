@@ -2,93 +2,98 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-      integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
-      rel="stylesheet"
-    />
-    <!-- Bulma Version 0.6.0 -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css"
-      integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw="
-      crossorigin="anonymous"
-    />
-    <!-- <link rel="stylesheet" href="./css/login.css" /> -->
-      <!-- <script>
-    function checkPageExists() {
-        var requestedPage = location.pathname; 
-        var validPages = ["/", "index", "/index" , "/index.html" , "index.html"]; 
-
-        if (!validPages.includes(requestedPage)) {
-          
-            window.location.href = '/404.html';
-        }
-    }
-
-    window.addEventListener('load', checkPageExists);
-</script> -->
-
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <title>Tugas Chapter 4 GCP dan mongoDB</title>
   </head>
   <body>
-    <div id="app">
-      <section class="hero is-fullheight">
-        <div class="hero-body">
-          <div class="container has-text-centered">
-            <div class="column is-4 is-offset-4">
-              <h3 class="title has-text-grey">Login dulu ngabs</h3>
-              <p class="subtitle has-text-grey">Please login to proceed.</p>
-              <div class="box">
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        class="input"
-                        type="text"
-                        placeholder="username"
-                        autocomplete="username"
-                        id="username"
-                        value=""
-                        required
-                        autofocus
-                      />
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        class="input"
-                        type="password"
-                        placeholder="******"
-                        autocomplete="current-password"
-                        id="password"
-                        value=""
-                        required
-                      />
-                    </div>
-                  </div>
-                        <button class="button is-block is-link is-fullwidth is-medium" type="submit" id="button">Login</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="container">
-            <div class="notification is-white" id="pesan"></div>
-           </div>
-
-      </section>
+    <h1 class="judul" style="text-align: center">Chapter 4 GCF dan mongoDB</h1>
+    <p>Nama : Daffa Audya Pramana</p>
+    <p>NPM : 1214015</p>
+    <p>Kelas : D4TI 3A</p>
+    <div id="map"></div>
+    <div class="col-auto mt-4">
+      <span class="input-group">
+        <label class="input-group-text" for="type">Geometry type:</label>
+        <select class="form-select" id="type">
+          <option value="Point">Point</option>
+          <option value="LineString">LineString</option>
+          <option value="Polygon">Polygon</option>
+          <option value="Circle">Circle</option>
+          <option value="None">None</option>
+        </select>
+        <input class="form-control" type="button" value="Undo" id="undo" />
+      </span>
     </div>
-            <!-- Scripts -->
-            <script type="module" src="./js/post.js"></script>
+    <input type="hidden" id="idmarker" name="idmarker" value="" />
+    <div id="popupinfo" class="ol-popup">
+      <b id="popupinfo-title"></b>
+      <div id="popupinfo-content"></div>
+      <div id="popupinfo-delete">
+        <input type="hidden" id="idmarker" name="idmarker" value="" />
+        <button id="hapusbutton" type="button">Hapus</button
+        ><button id="hitungcogbutton" type="button">Hitung COG</button><br />
+      </div>
+    </div>
+
+    <div id="popup" class="ol-popup">
+      <b id="popup-title">Input Center of Gravity</b
+      ><a href="#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content"></div>
+      <div id="popup-input">
+        Nama : <input type="text" id="name" name="name" required /><br />
+        Volume : <input type="text" id="volume" name="volume" required /><br />
+        <input type="hidden" id="long" name="long" value="" />
+        <input type="hidden" id="lat" name="lat" value="" />
+        <button id="insertmarkerbutton" type="button">Input</button><br />
+      </div>
+    </div>
+    <div id="info-table">
+      <div class="point-table">
+        <h1>Data Point</h1>
+        <table id="pointTable" border="1">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Coordinate</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody id="lokasi"></tbody>
+        </table>
+      </div>
+
+      <div class="polygon-table">
+        <h1>Data Polygon</h1>
+        <table id="polygonTable" border="1">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Coordinate</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody id="polygon"></tbody>
+        </table>
+      </div>
+
+      <div class="polyline-table">
+        <h1>Data Polyline</h1>
+        <table id="polylineTable" border="1">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Coordinate</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody id="line"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.1.0/dist/ol.js"></script>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/post.js"></script>
   </body>
 </html>
