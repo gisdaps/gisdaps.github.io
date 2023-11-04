@@ -22,6 +22,7 @@
       integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw="
       crossorigin="anonymous"
     />
+
   </head>
   <body>
     <div id="app">
@@ -30,15 +31,15 @@
           <div class="container has-text-centered">
             <div class="column is-4 is-offset-4">
               <h3 class="title has-text-grey">Login dulu ngabs</h3>
-              <p class="subtitle has-text-grey">Login untuk menuju halaman utama.</p>
+              <p class="subtitle has-text-grey">Please login for go to main page.</p>
               <div class="box">
                   <div class="field">
                     <div class="control">
                       <input
                         class="input"
                         type="text"
-                        placeholder="username"
-                        autocomplete="daffa"
+                        placeholder="daffa"
+                        autocomplete="username"
                         id="username"
                         value="daffa"
                         required
@@ -60,14 +61,23 @@
                       />
                     </div>
                   </div>
-                  <button id="submit">login</button>
+                  <button class="button is-block is-link is-fullwidth is-medium" type="submit" id="button"
+                  onclick="PostSignUp()">
+                    Login
+                  </button>
                 </form>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="container">
+            <div class="notification is-white" id="pesan"></div>
+           </div>
+
       </section>
     </div>
-    <script type="module" src="./jscroot/controller/controller_login.js"></script>
+            <!-- Scripts -->
+            <script type="module" src="./post.js"></script>
   </body>
 </html>
