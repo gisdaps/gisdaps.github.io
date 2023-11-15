@@ -29,6 +29,7 @@
       <section class="hero is-fullheight">
         <div class="hero-body">
           <div class="container has-text-centered">
+            <form class="form-horizontal w-3/4 mx-auto" id="formlogin">
             <div class="column is-4 is-offset-4">
               <h3 class="title has-text-grey">Login dulu ngabs</h3>
               <p class="subtitle has-text-grey">Please login for go to main page.</p>
@@ -38,10 +39,10 @@
                       <input
                         class="input"
                         type="text"
-                        placeholder="daffa"
+                        placeholder="username"
                         autocomplete="username"
                         id="username"
-                        value="daffa"
+                        value="gis5daffa"
                         required
                         autofocus
                       />
@@ -53,31 +54,28 @@
                       <input
                         class="input"
                         type="password"
-                        placeholder="******"
+                        placeholder="password"
                         autocomplete="current-password"
                         id="password"
-                        value="pwnyapahayoh"
+                        value="gis5daffa"
                         required
                       />
                     </div>
                   </div>
-                  <button class="button is-block is-link is-fullwidth is-medium" type="submit" id="button"
-                  onclick="PostSignUp()">
+                  <button class="button is-block is-link is-fullwidth is-medium" type="submit" id="button">
                     Login
                   </button>
+                  <br>
+                  <p class="text-sm leading-relaxed text-grey-900">Not registered yet? <a href="register.html" class="font-bold text-grey-700">Create an Account</a></p>
                 </form>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="container">
-            <div class="notification is-white" id="pesan"></div>
-           </div>
-
       </section>
     </div>
             <!-- Scripts -->
-            <script type="module" src="./post.js"></script>
+            <script type="module" src="./jscroot/controller/controller_login.js"></script>
   </body>
 </html>
