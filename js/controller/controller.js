@@ -40,7 +40,7 @@ export function isiRowPolyline(value) {
   }
 }
 
-export function _MakeGeojsonFromAPI(value) {
+export function MakeGeojsonFromAPI(value) {
   const geojsonFeatureCollection = {
     type: "FeatureCollection",
     features: value,
@@ -165,7 +165,7 @@ export function AddLayerToMAP(geojson) {
 
 export function responseData(results) {
   // console.log(results.features);
-  console.log(_MakeGeojsonFromAPI(results))
+  // console.log(MakeGeojsonFromAPI(results))
   results.forEach(isiRowPoint);
   results.forEach(isiRowPolygon);
   results.forEach(isiRowPolyline);
