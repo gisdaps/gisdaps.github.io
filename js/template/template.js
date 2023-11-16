@@ -1,8 +1,8 @@
 import {getCookie} from "https://jscroot.github.io/cookie/croot.js";
 
-export let urlGeoJson = "https://asia-southeast2-daffaaudya.cloudfunctions.net/gisch3or";
-export let urlPostGcf = "https://asia-southeast2-daffaaudya.cloudfunctions.net/gischp4or";
-export let urlLogin = "https://asia-southeast2-daffaaudya.cloudfunctions.net/gislogin"
+export let URLGeoJson = "https://asia-southeast2-daffaaudya.cloudfunctions.net/gisch3or";
+export let urlPostGCF = "https://asia-southeast2-daffaaudya.cloudfunctions.net/gischp4or";
+export let UrlLogin = "https://asia-southeast2-daffaaudya.cloudfunctions.net/gislogin"
 export let UrlRegister = "https://asia-southeast2-daffaaudya.cloudfunctions.net/gisregister"
 export let tableTag = "tr";
 export let tableRowClass = "content is-small";

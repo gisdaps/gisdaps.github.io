@@ -1,6 +1,6 @@
 import { get } from "https://jscroot.github.io/api/croot.js";
 import {getCookie} from "https://jscroot.github.io/cookie/croot.js";
-import { urlGeoJson } from "./template/template.js";
+import { URLGeoJson } from "./template/template.js";
 import { MakeGeojsonFromAPI, responseData, AddLayerToMAP, drawer } from "./controller/controller.js";
 import {map} from './config/configpeta.js';
 import {onClosePopupClick,onDeleteMarkerClick,onSubmitMarkerClick,onMapClick,onMapPointerMove,disposePopover, GetLonLat} from './controller/popup.js';
@@ -25,7 +25,7 @@ map.on('pointermove', onMapPointerMove);
 map.on('movestart', disposePopover);
 
 
-get(urlGeoJson,data => {
+get(URLGeoJson,data => {
     responseData(data)
     let link = MakeGeojsonFromAPI(data)
     // console.log(link)
