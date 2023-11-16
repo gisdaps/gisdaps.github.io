@@ -1,4 +1,4 @@
-export let urlGeoJson =
+export let _urlGeoJson =
   "https://asia-southeast2-daffaaudya.cloudfunctions.net/gisch3or";
 export let urlPOSTGCF =
   "https://asia-southeast2-daffaaudya.cloudfunctions.net/gischp4or";
