@@ -3,7 +3,7 @@ import {toStringHDMS} from 'https://cdn.skypack.dev/ol/coordinate.js';
 import {overlay,map,popupinfo,idmarker} from '../config/configpeta.js';
 import {_urlGeoJson, clickpopup , urlPOSTGCF} from '../template/template.js';
 import {insertMarker,deleteMarker} from './marker.js';
-import {setInner,textBlur,onClick, getValue,setValue} from 'https://jscroot.github.io/element/croot.js';
+import {setInner,textBlur, onClick , getValue,setValue} from 'https://jscroot.github.io/element/croot.js';
 import { postWithToken } from "https://jscroot.github.io/api/croot.js";
 import { setCookieWithExpireHour, getCookie } from 'https://jscroot.github.io/cookie/croot.js';
 
@@ -59,7 +59,7 @@ export function getTokenFromCookies(cookieName) {
       "coordinates": [parseFloat(long), parseFloat(lat)]
     };
   
-    postWithToken(urlPostGCF, "Login", userToken, data, afterSubmitCOG);
+    postWithToken(urlPOSTGCF, "Login", userToken, data, afterSubmitCOG);
     overlay.setPosition(undefined);
     textBlur('popup-closer');
     insertMarker(name, long, lat, volume);
