@@ -5,7 +5,7 @@ import {map} from '../config/configpeta.js';
 import Draw from 'https://cdn.skypack.dev/ol/interaction/Draw.js';
 
 export function getTokenFromAPI() {
-    const tokenUrl = "https://us-central1-noted-slice-401902.cloudfunctions.net/Login-Gis";
+    const tokenUrl = "https://asia-southeast2-daffaaudya.cloudfunctions.net/gislogin";
     fetch(tokenUrl)
       .then(response => response.json())
       .then(tokenData => {
@@ -174,7 +174,7 @@ export function ResponsePostLogin(response) {
     if (response && response.token) {
       console.log('Token User:', response.token);
       setCookieWithExpireHour('Login', response.token, 3);
-      window.location.href = 'https://gis-ryaas.github.io/';
+      window.location.href = 'https://gisdapsgithub.io/';
       alert("Selamat Datang")
     } else {
       alert('Login gagal. Silakan coba lagi.');
