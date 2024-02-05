@@ -16,12 +16,12 @@ Repository ini berisi berbagai komponen dan proyek yang terkait dengan GIS yang 
 ```sh
 API LOGIN:
 
-https://us-central1-fahad-402509.cloudfunctions.net/gislogin"
+"https://asia-southeast2-daffaaudya.cloudfunctions.net/gislogin"
 
 ```sh
 Body:
 {
-    "username": "dapa",
-    "password": "dapa"
+    "username": "dapaskutspars",
+    "password": "dapaskutspars"
 }
 
