@@ -126,3 +126,22 @@ th.type, td.type {
   width: 150px;
   white-space: normal;
 }
+/* Mengatur style untuk elemen <h1> dan <h2> */
+h1, h2 {
+  text-align: center; /* Pusatkan teks horizontal */
+  color: #333; /* Warna teks */
+  margin: 10px 0; /* Jarak atas dan bawah */
+}
+
+/* Mengatur style khusus untuk elemen <h1> */
+h1 {
+  font-size: 24px; /* Ukuran font */
+  font-weight: bold; /* Ketebalan teks */
+}
+
+/* Mengatur style khusus untuk elemen <h2> dengan class "chapter" */
+h2.chapter {
+  font-size: 18px; /* Ukuran font */
+  font-style: italic; /* Gaya teks miring */
+  color: #666; /* Warna teks yang lebih ringan */
+}
