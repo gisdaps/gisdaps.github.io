@@ -1,113 +1,178 @@
 <!DOCTYPE html>
-<html lang="id">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 4 Sistem Informasi Geografis</title>
-    <link rel="stylesheet" href="./css/style.css" type="text/css" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <title>Welcome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body>
-
-    <nav class="navbar">
-        <ul>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </nav>
-
-    <div class="intro">
-        <h3>Daffa Audya Pramana - 1214015</h3>
-        <h3>D4 Teknik Informatika 3A</h3>
-    </div><br>
-
-    <div id='map'></div>
-
-    <div class="col-auto">
-        <span class="input-group">
-          <label class="input-group-text" for="type">Geometry type:</label>
-          <select class="form-select" id="type">
-            <option value="Point">Point</option>
-            <option value="LineString">LineString</option>
-            <option value="Polygon">Polygon</option>
-            <option value="Circle">Circle</option>
-            <option value="None" selected>None</option>
-          </select>
-          <input class="form-control" type="button" value="Undo" id="undo">
-        </span>
-      </div>
-
-    <input type="hidden" id="idmarker" name="idmarker" value="">
-
-    <div id="popupinfo" class="ol-popup">
-        <b id="popupinfo-title"></b>
-        <div id="popupinfo-content"></div>
-        <div id="popupinfo-delete">
-            <input type="hidden" id="idmarker" name="idmarker" value="">
-            <button id="hapusbutton" type="button">Hapus</button><button id="hitungcogbutton" type="button">Hitung
-                COG</button><br>
+    <div class="min-h-screen dark:bg-gray-800 dark:text-gray-100">
+        <div class="p-6 space-y-8">
+            <header class="container flex items-center justify-between h-16 px-4 mx-auto rounded dark:bg-gray-900">
+                <a rel="noopener noreferrer" href="#" aria-label="Homepage">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-6 h-6 dark:text-violet-400">
+                        <path d="M27.912 7.289l-10.324-5.961c-0.455-0.268-1.002-0.425-1.588-0.425s-1.133 0.158-1.604 0.433l0.015-0.008-10.324 5.961c-0.955 0.561-1.586 1.582-1.588 2.75v11.922c0.002 1.168 0.635 2.189 1.574 2.742l0.016 0.008 10.322 5.961c0.455 0.267 1.004 0.425 1.59 0.425 0.584 0 1.131-0.158 1.602-0.433l-0.014 0.008 10.322-5.961c0.955-0.561 1.586-1.582 1.588-2.75v-11.922c-0.002-1.168-0.633-2.189-1.573-2.742zM27.383 21.961c0 0.389-0.211 0.73-0.526 0.914l-0.004 0.002-10.324 5.961c-0.152 0.088-0.334 0.142-0.53 0.142s-0.377-0.053-0.535-0.145l0.005 0.002-10.324-5.961c-0.319-0.186-0.529-0.527-0.529-0.916v-11.922c0-0.389 0.211-0.73 0.526-0.914l0.004-0.002 10.324-5.961c0.152-0.090 0.334-0.143 0.53-0.143s0.377 0.053 0.535 0.144l-0.006-0.002 10.324 5.961c0.319 0.185 0.529 0.527 0.529 0.916z"></path>
+                        <path d="M22.094 19.451h-0.758c-0.188 0-0.363 0.049-0.515 0.135l0.006-0.004-4.574 2.512-5.282-3.049v-6.082l5.282-3.051 4.576 2.504c0.146 0.082 0.323 0.131 0.508 0.131h0.758c0.293 0 0.529-0.239 0.529-0.531v-0.716c0-0.2-0.11-0.373-0.271-0.463l-0.004-0.002-5.078-2.777c-0.293-0.164-0.645-0.26-1.015-0.26-0.39 0-0.756 0.106-1.070 0.289l0.010-0.006-5.281 3.049c-0.636 0.375-1.056 1.055-1.059 1.834v6.082c0 0.779 0.422 1.461 1.049 1.828l0.009 0.006 5.281 3.049c0.305 0.178 0.67 0.284 1.061 0.284 0.373 0 0.723-0.098 1.027-0.265l-0.012 0.006 5.080-2.787c0.166-0.091 0.276-0.265 0.276-0.465v-0.716c0-0.293-0.238-0.529-0.529-0.529z"></path>
+                    </svg>
+                </a>
+                <div class="items-center hidden space-x-8 lg:flex">
+                    <div class="space-x-4">
+                        <a rel="noopener noreferrer" href="dashboard">Dashboard</a>
+                        <a rel="noopener noreferrer" href="swagger">Swagger</a>
+                        <!-- <a rel="noopener noreferrer" href="#">Link</a> -->
+                        <!-- <a rel="noopener noreferrer" href="#">Link</a> -->
+                    </div>
+                    <button class="px-4 py-2 rounded-md dark:bg-violet-400 dark:text-gray-900">
+                        <a href="login.html" style="text-decoration: none; color: inherit;">Log In</a>
+                    </button>                    
+                </div>
+                <button class="flex items-center justify-center p-2 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 dark:text-gray-50">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </header>
+            <main>
+                <div class="container mx-auto space-y-16">
+                    <section class="grid gap-6 text-center lg:grid-cols-2 xl:grid-cols-5">
+                        <div class="w-full p-6 rounded-md sm:p-16 xl:col-span-2 dark:bg-gray-900">
+                            <span class="block mb-2 dark:text-violet-400">Mamba design system</span>
+                            <h1 class="text-5xl font-extrabold dark:text-gray-50">Build it with Mamba</h1>
+                            <p class="my-8">
+                                <span class="font-medium dark:text-gray-50">Modular and versatile.</span>The ultimate design toolkit for savvy technology startups.
+                            </p>
+                            <p class="my-8">
+                                <span class="font-medium dark:text-gray-50"> Klik dashboard di bagian navigaasi bar diatas </span>untuk melihat Map Openlayer Gis Geospatial.
+                            </p>
+                            <!-- <form novalidate="" action="" class="self-stretch space-y-3">
+                                <div>
+                                    <label for="name" class="text-sm sr-only">Your name</label>
+                                    <input id="name" type="text" placeholder="Your name" class="w-full rounded-md focus:ring focus:ri dark:border-gray-700">
+                                </div>
+                                <div>
+                                    <label for="lastname" class="text-sm sr-only">Email address</label>
+                                    <input id="lastname" type="text" placeholder="Email address" class="w-full rounded-md focus:ring focus:ri dark:border-gray-700">
+                                </div>
+                                <button class="w-full py-2 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Join the waitlist</button>
+                            </form> -->
+                        </div>
+                        <img src="https://source.unsplash.com/random/480x360" alt="" class="object-cover w-full h-full rounded-md xl:col-span-3 dark:bg-gray-500">
+                    </section>
+                    <section>
+                        <span class="block mb-2 text-xs font-medium tracki uppercase lg:text-center dark:text-violet-400">How it works</span>
+                        <h2 class="text-5xl font-bold lg:text-center dark:text-gray-50">Building with Mamba is simple</h2>
+                        <div class="grid gap-6 my-16 lg:grid-cols-3">
+                            <div class="flex flex-col p-8 space-y-4 rounded-md dark:bg-gray-900">
+                                <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 text-xl font-bold rounded-full dark:bg-violet-400 dark:text-gray-900">1</div>
+                                <p class="text-2xl font-semibold">
+                                    <b>Nulla.</b>Nostrum, corrupti blanditiis. Illum, architecto?
+                                </p>
+                            </div>
+                            <div class="flex flex-col p-8 space-y-4 rounded-md dark:bg-gray-900">
+                                <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 text-xl font-bold rounded-full dark:bg-violet-400 dark:text-gray-900">2</div>
+                                <p class="text-2xl font-semibold">
+                                    <b>Accusantium.</b>Vitae saepe atque neque sunt eius dolor veniam alias debitis?
+                                </p>
+                            </div>
+                            <div class="flex flex-col p-8 space-y-4 rounded-md dark:bg-gray-900">
+                                <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 text-xl font-bold rounded-full dark:bg-violet-400 dark:text-gray-900">3</div>
+                                <p class="text-2xl font-semibold">
+                                    <b>Maxime.</b>Expedita temporibus culpa reprehenderit doloribus consectetur odio!
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="grid gap-6 lg:grid-cols-2">
+                        <img src="https://source.unsplash.com/random/360x480" alt="" class="object-cover w-full rounded-md max-h-96 dark:bg-gray-500">
+                        <div class="flex flex-col items-center w-full p-6 space-y-8 rounded-md lg:h-full lg:p-8 dark:bg-gray-900">
+                            <img src="https://source.unsplash.com/random/100x100" alt="" class="object-cover w-20 h-20 rounded-full dark:bg-gray-500">
+                            <blockquote class="max-w-lg text-lg italic font-medium text-center">"Et, dignissimos obcaecati. Recusandae praesentium doloribus vitae? Rem unde atque mollitia!"</blockquote>
+                            <div class="text-center dark:text-gray-400">
+                                <p>Leroy Jenkins</p>
+                                <p>CEO of Company Co.</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button type="button" aria-label="Page 1" class="w-2 h-2 rounded-full dark:bg-gray-50"></button>
+                                <button type="button" aria-label="Page 2" class="w-2 h-2 rounded-full dark:bg-gray-600"></button>
+                                <button type="button" aria-label="Page 3" class="w-2 h-2 rounded-full dark:bg-gray-600"></button>
+                                <button type="button" aria-label="Page 4" class="w-2 h-2 rounded-full dark:bg-gray-600"></button>
+                            </div>
+                        </div>
+                        <div class="p-8 space-y-8 rounded-md lg:col-span-full lg:py-12 dark:bg-gray-900">
+                            <h2 class="text-5xl font-bold dark:text-gray-50">Create with us</h2>
+                            <p class="dark:text-gray-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt facilis quod accusantium beatae cum nam adipisci reiciendis omnis possimus error quo animi voluptas magni, at incidunt. Nulla ex at ullam corporis quidem adipisci vitae, perferendis dolorem libero minus atque tenetur enim pariatur cupiditate commodi in beatae, ipsa eligendi? Quis, saepe.</p>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="grid gap-6 lg:grid-cols-3">
+                            <div class="overflow-hidden rounded lg:flex lg:col-span-3">
+                                <img src="https://source.unsplash.com/random/485x365" alt="" class="object-cover w-full h-auto max-h-96 dark:bg-gray-500">
+                                <div class="p-6 space-y-6 lg:p-8 md:flex md:flex-col dark:bg-gray-900">
+                                    <span class="self-start px-3 py-1 text-sm rounded-full dark:bg-violet-400 dark:text-gray-900">Business</span>
+                                    <h2 class="text-3xl font-bold md:flex-1">Curating a workplace that inspires team movement</h2>
+                                    <div>
+                                        <p class="dark:text-gray-400">November 30, 2020</p>
+                                        <p class="dark:text-gray-400">By Leroy Jenkins</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-6 rounded lg:p-8 lg:py-12 dark:bg-gray-900">
+                                <h3 class="inline font-medium dark:text-gray-50">Panel-based blocks.</h3>
+                                <p class="inline">Flexible panels that are perfect for building functional layouts.</p>
+                            </div>
+                            <div class="p-6 rounded lg:p-8 lg:py-12 dark:bg-gray-900">
+                                <h3 class="inline font-medium dark:text-gray-50">Responsive design.</h3>
+                                <p class="inline">Panels look great no matter the device.</p>
+                            </div>
+                            <div class="p-6 rounded lg:p-8 lg:py-12 dark:bg-gray-900">
+                                <h3 class="inline font-medium dark:text-gray-50">Premium support.</h3>
+                                <p class="inline">Join over 50 000 satisfied customers who use our templates.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container p-6 py-20 mx-auto rounded lg:px-8 dark:bg-gray-900">
+                            <h2 class="text-5xl font-bold text-center">Our team is here to help you.</h2>
+                            <div class="flex justify-center p-4">
+                                <a rel="noopener noreferrer" href="#">Meet our crew &gt;</a>
+                            </div>
+                            <img src="https://source.unsplash.com/random/360x240" alt="" class="object-cover w-full h-auto mt-8 rounded max-h-96 dark:bg-gray-500">
+                        </div>
+                    </section>
+                </div>
+            </main>
+            <footer class="px-4 py-8 dark:bg-gray-800 dark:text-gray-400">
+                <div class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
+                    <div class="flex flex-row pr-3 space-x-4 sm:space-x-8">
+                        <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full dark:bg-violet-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="w-5 h-5 rounded-full dark:text-gray-900">
+                                <path d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z"></path>
+                            </svg>
+                        </div>
+                        <ul class="flex flex-wrap items-center space-x-4 sm:space-x-8">
+                            <li>
+                                <a rel="noopener noreferrer" href="#">Terms of Use</a>
+                            </li>
+                            <li>
+                                <a rel="noopener noreferrer" href="#">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
+                        <li>
+                            <a rel="noopener noreferrer" href="#">Instagram</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#">Facebook</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#">Twitter</a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
         </div>
-
     </div>
-
-    <div id="popup" class="ol-popup">
-        <b id="popup-title">Input Center of Gravity</b><a href="#" id="popup-closer" class="ol-popup-closer"></a>
-        <div id="popup-content"></div>
-        <div id="popup-input">
-            Nama : <input type="text" id="name" name="name" required><br>
-            Volume : <input type="text" id="volume" name="volume" required><br>
-            <input type="hidden" id="long" name="long" value="">
-            <input type="hidden" id="lat" name="lat" value="">
-            <button id="insertmarkerbutton" type="button">Input</button><br>
-        </div>
-    </div>
-    <div id="info-table">
-        <div class="point-table">
-            <br>
-            <h3 style="text-align: center;">Data Point</h3>
-            <table id="pointTable" border="1">
-                <thead>
-                    <tr>
-                        <th>Nama</th>
-                        <th>Koordinat</th>
-                        <th>Type</th>
-                    </tr>
-                </thead>
-                <tbody id="lokasi"></tbody>
-            </table>
-        </div>
-
-        <div class="polygon-table"><br>
-            <h3 style="text-align: center;">Data Polygon</h3>
-            <table id="polygonTable" border="1">
-                <thead>
-                    <tr>
-                        <th>Nama</th>
-                        <th>Koordinat</th>
-                        <th>Type</th>
-                    </tr>
-                </thead>
-                <tbody id="polygon"></tbody>
-            </table>
-        </div>
-
-        <div class="polyline-table"><br>
-            <h3 style="text-align: center;">Data LineString</h3>
-            <table id="polylineTable" border="1">
-                <thead>
-                    <tr>
-                        <th>Nama</th>
-                        <th>Koordinat</th>
-                        <th>Type</th>
-                    </tr>
-                </thead>
-                <tbody id="line"></tbody>
-            </table>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/ol@v8.1.0/dist/ol.js"></script>
-    <script type="module" src="./js/main.js"></script>
 </body>
-
 </html>

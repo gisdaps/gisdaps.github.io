@@ -11,40 +11,42 @@ const attributions = '<a href="https://petapedia.github.io/" target="_blank">&co
 
 const place = [107.54180787870939, -6.873533406322835];
 
-export let idmarker = {id: 1};
+export let idmarker = {id:1};
 
 const basemap = new TileLayer({
-  source: new OSM({attributions: attributions,}),
+    source: new OSM({
+        attributions: attributions,
+      }),
 });
 
 const defaultstartmap = new View({
   center: fromLonLat(place),
-  zoom: 15.5,
+  zoom: 15,
 });
 
 export const overlay = new Overlay({
-  element: container('popup'),
-  autoPan: {
-    animation: {
-      duration: 250,
+    element: container('popup'),
+    autoPan: {
+      animation: {
+        duration: 250,
+      },
     },
-  },
-});
+  });
 
 export const popupinfo = new Overlay({
-  element: container('popupinfo'),
-  autoPan: {
-    animation: {
-      duration: 250,
+    element: container('popupinfo'),
+    autoPan: {
+      animation: {
+        duration: 250,
+      },
     },
-  },
 });
 
 export let map = new Map({
-  overlays: [overlay, popupinfo],
-  target: 'map',
   layers: [
-    basemap
-  ],
+        basemap
+    ],
+  overlays: [overlay,popupinfo],
+  target: 'map',
   view: defaultstartmap,
 });

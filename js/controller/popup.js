@@ -7,7 +7,6 @@ import {setInner,textBlur,onClick, getValue,setValue} from 'https://jscroot.gith
 import { postWithToken } from "https://jscroot.github.io/api/croot.js";
 import { allCoordinates } from '../main.js';
 
-
 export function onClosePopupClick() {
     overlay.setPosition(undefined);
     textBlur('popup-closer');
@@ -95,7 +94,7 @@ export function onMapClick(evt) {
     }
   }
 
-export function GetLonLat(evt) {
+export function GetCoorLonLat(evt) {
     var point = map.getCoordinateFromPixel(evt.pixel);
     var lonLat = ol.proj.toLonLat(point); 
     console.log(lonLat);  // note the ordering of the numbers

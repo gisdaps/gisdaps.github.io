@@ -34,35 +34,6 @@ export function insertMarker(name,long,lat,volume){
     });
     map.addLayer(vectorLayer);
 }
-// export function insertMarkerPol(name, coordinates, volume) {
-//   // Convert the coordinates into a polygon geometry.
-//   let polygon = new Feature({
-//     type: 'polygon',
-//     id: idmarker.id,
-//     name: name,
-//     volume: volume,
-//     geometry: new Polygon([coordinates]), // Pass an array of coordinates for the polygon.
-//   });
-
-//   polygon.setStyle(
-//     new ol.style.Style({
-//       stroke: new ol.style.Stroke({
-//           color: 'blue', 
-//           width: 2
-//       })
-//   })
-//   );
-
-//   let vectorSource = new VectorSource({
-//     features: [polygon],
-//   });
-
-//   let vectorLayer = new VectorLayer({
-//     source: vectorSource,
-//   });
-
-//   map.addLayer(vectorLayer);
-// }
 
 export function deleteMarker(idmarker){
     let i=0;

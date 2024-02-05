@@ -41,6 +41,8 @@ export function isiRowPolyline(value){
     }
 }
 
+
+
 export function MakeGeojsonFromAPI(value) {
     const geojsonFeatureCollection = {
         type: "FeatureCollection",
@@ -55,6 +57,9 @@ export function MakeGeojsonFromAPI(value) {
 
     const link = document.createElement("a");
     link.href = url;
+    // link.download = fileName || "data.geojson"; 
+
+    // document.body.appendChild(link);
 
     return link;
 }
@@ -111,13 +116,18 @@ export function drawer(geojson) {
     map.addLayer(Stroke);
 }
 
-
 export function AddLayerToMAP(geojson){ 
     const Sourcedata = new ol.source.Vector({
         url: geojson,
         format: new ol.format.GeoJSON(),
-        // wrapx : false
       });
+
+    const geojsonFeatureCollection = {
+        type: "FeatureCollection",
+        features: Sourcedata
+    };
+
+    console.log(geojsonFeatureCollection)
 
     //buat layer untuk point, polygon, dan polyline
     const layerpoint = new ol.layer.Vector({
@@ -155,16 +165,11 @@ export function AddLayerToMAP(geojson){
     });
 
     map.addLayer(polylayer);
-    map.addLayer(layerpoint);
-    // drawer(Sourcedata)
-    
-}
-
+    map.addLayer(layerpoint);}
 
 export function responseData(results){
     // console.log(results.features);
     // console.log(MakeGeojsonFromAPI(results))
-    // Addlayer()
     results.forEach(isiRowPoint);
     results.forEach(isiRowPolygon);
     results.forEach(isiRowPolyline);
